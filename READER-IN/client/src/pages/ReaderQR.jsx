@@ -28,9 +28,9 @@ function ReaderQR() {
 
   }, [])
 
-  useEffect(()=>{
+  useEffect(async()=>{
     if(result){
-      axios.post('http://localhost:8889/reader',{password:result})
+     await axios.post('http://localhost:8889/reader',{password:result})
       .then(res=>{
         if(res.data.message ==="Validation successfully"){
           navigate('/successfully');
